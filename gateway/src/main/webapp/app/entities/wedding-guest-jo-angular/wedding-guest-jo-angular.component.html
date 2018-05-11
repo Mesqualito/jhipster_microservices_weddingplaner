@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="weddingplanerApp.weddingGuest.home.title">Wedding Guests</span>
+        <button class="btn btn-primary float-right jh-create-entity create-wedding-guest-jo-angular" [routerLink]="['/', { outlets: { popup: ['wedding-guest-jo-angular-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="weddingplanerApp.weddingGuest.home.createLabel">
+            Create new Wedding Guest
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="weddingGuests">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="weddingplanerApp.weddingGuest.firstName">First Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="weddingplanerApp.weddingGuest.lastName">Last Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="email"><span jhiTranslate="weddingplanerApp.weddingGuest.email">Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="guestInvitationDate"><span jhiTranslate="weddingplanerApp.weddingGuest.guestInvitationDate">Guest Invitation Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="guestCommitted"><span jhiTranslate="weddingplanerApp.weddingGuest.guestCommitted">Guest Committed</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="guestRsvpDate"><span jhiTranslate="weddingplanerApp.weddingGuest.guestRsvpDate">Guest Rsvp Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="privateAddressId"><span jhiTranslate="weddingplanerApp.weddingGuest.privateAddress">Private Address</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="businessAddressId"><span jhiTranslate="weddingplanerApp.weddingGuest.businessAddress">Business Address</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="appUserId"><span jhiTranslate="weddingplanerApp.weddingGuest.appUser">App User</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let weddingGuest of weddingGuests ;trackBy: trackId">
+                <td><a [routerLink]="['../wedding-guest-jo-angular', weddingGuest.id ]">{{weddingGuest.id}}</a></td>
+                <td>{{weddingGuest.firstName}}</td>
+                <td>{{weddingGuest.lastName}}</td>
+                <td>{{weddingGuest.email}}</td>
+                <td>{{weddingGuest.guestInvitationDate | date:'medium'}}</td>
+                <td>{{weddingGuest.guestCommitted}}</td>
+                <td>{{weddingGuest.guestRsvpDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="weddingGuest.privateAddressId">
+                        <a [routerLink]="['../address-jo-angular', weddingGuest.privateAddressId  ]" >{{weddingGuest.privateAddressId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="weddingGuest.businessAddressId">
+                        <a [routerLink]="['../address-jo-angular', weddingGuest.businessAddressId  ]" >{{weddingGuest.businessAddressId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="weddingGuest.appUserId">
+                        <a [routerLink]="['../app-user-jo-angular', weddingGuest.appUserId  ]" >{{weddingGuest.appUserId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../wedding-guest-jo-angular', weddingGuest.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'wedding-guest-jo-angular/'+ weddingGuest.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'wedding-guest-jo-angular/'+ weddingGuest.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

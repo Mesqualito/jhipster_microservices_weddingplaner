@@ -1,0 +1,9 @@
+{
+    "weddingplanerApp": {
+        "AddressType" : {
+            "null": "",
+            "PRIVATE": "PRIVATE",
+            "BUSINESS": "BUSINESS"
+        }
+    }
+}

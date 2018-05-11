@@ -1,0 +1,28 @@
+
+{
+    "weddingplanerApp": {
+        "weddingService" : {
+            "home": {
+                "title": "Wedding Services",
+                "createLabel": "Create a new Wedding Service",
+                "createOrEditLabel": "Create or edit a Wedding Service"
+            },
+            "created": "A new Wedding Service is created with identifier {{ param }}",
+            "updated": "A Wedding Service is updated with identifier {{ param }}",
+            "deleted": "A Wedding Service is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Wedding Service {{ id }}?"
+            },
+            "detail": {
+                "title": "Wedding Service"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "serviceCommittedDate": "Service Committed Date",
+            "businessAddress": "Business Address",
+            "privateAddress": "Private Address",
+            "appUser": "App User"
+        }
+    }
+}

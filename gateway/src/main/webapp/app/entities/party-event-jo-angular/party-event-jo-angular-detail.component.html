@@ -1,0 +1,64 @@
+
+<div *ngIf="partyEvent">
+    <h2><span jhiTranslate="weddingplanerApp.partyEvent.detail.title">Party Event</span> {{partyEvent.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.eventName">Event Name</span></dt>
+        <dd>
+            <span>{{partyEvent.eventName}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.eventShortDescription">Event Short Description</span></dt>
+        <dd>
+            <span>{{partyEvent.eventShortDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.eventLongDescription">Event Long Description</span></dt>
+        <dd>
+            <span>{{partyEvent.eventLongDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.language">Language</span></dt>
+        <dd>
+            <span jhiTranslate="{{'weddingplanerApp.Language.' + partyEvent.language}}">{{partyEvent.language}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.eventInitTime">Event Init Time</span></dt>
+        <dd>
+            <span>{{partyEvent.eventInitTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.eventStartTime">Event Start Time</span></dt>
+        <dd>
+            <span>{{partyEvent.eventStartTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.eventEndTime">Event End Time</span></dt>
+        <dd>
+            <span>{{partyEvent.eventEndTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.eventMaxPerson">Event Max Person</span></dt>
+        <dd>
+            <span>{{partyEvent.eventMaxPerson}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.weight">Weight</span></dt>
+        <dd>
+            <span>{{partyEvent.weight}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.partyEvent.owner">Owner</span></dt>
+        <dd>
+            <div *ngIf="partyEvent.ownerId">
+                <a [routerLink]="['/app-user-jo-angular', partyEvent.ownerId]">{{partyEvent.ownerId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'party-event-jo-angular/'+ partyEvent.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

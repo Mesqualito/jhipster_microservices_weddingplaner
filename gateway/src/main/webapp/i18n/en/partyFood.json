@@ -1,0 +1,33 @@
+
+{
+    "weddingplanerApp": {
+        "partyFood" : {
+            "home": {
+                "title": "Party Foods",
+                "createLabel": "Create a new Party Food",
+                "createOrEditLabel": "Create or edit a Party Food"
+            },
+            "created": "A new Party Food is created with identifier {{ param }}",
+            "updated": "A Party Food is updated with identifier {{ param }}",
+            "deleted": "A Party Food is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Party Food {{ id }}?"
+            },
+            "detail": {
+                "title": "Party Food"
+            },
+            "foodName": "Food Name",
+            "foodShortDescription": "Food Short Description",
+            "foodLongDescription": "Food Long Description",
+            "language": "Language",
+            "foodQuantityPersons": "Food Quantity Persons",
+            "foodBestServeTime": "Food Best Serve Time",
+            "foodProposalAccepted": "Food Proposal Accepted",
+            "foodProposalAcceptTime": "Food Proposal Accept Time",
+            "weight": "Weight",
+            "owner": "Owner",
+            "memberUser": "Member User",
+            "acceptedByHost": "Accepted By Host"
+        }
+    }
+}

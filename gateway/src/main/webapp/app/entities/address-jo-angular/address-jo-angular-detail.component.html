@@ -1,0 +1,62 @@
+
+<div *ngIf="address">
+    <h2><span jhiTranslate="weddingplanerApp.address.detail.title">Address</span> {{address.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="weddingplanerApp.address.addressType">Address Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'weddingplanerApp.AddressType.' + address.addressType}}">{{address.addressType}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.address.addressLine1" [ngbTooltip]="'weddingplanerApp.address.help.addressLine1' | translate">Address Line 1</span></dt>
+        <dd>
+            <span>{{address.addressLine1}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.address.addressLine2" [ngbTooltip]="'weddingplanerApp.address.help.addressLine2' | translate">Address Line 2</span></dt>
+        <dd>
+            <span>{{address.addressLine2}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.address.city">City</span></dt>
+        <dd>
+            <span>{{address.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.address.zipCode">Zip Code</span></dt>
+        <dd>
+            <span>{{address.zipCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.address.state">State</span></dt>
+        <dd>
+            <span>{{address.state}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.address.country">Country</span></dt>
+        <dd>
+            <span>{{address.country}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.address.businessPhoneNr">Business Phone Nr</span></dt>
+        <dd>
+            <span>{{address.businessPhoneNr}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.address.privatePhoneNr">Private Phone Nr</span></dt>
+        <dd>
+            <span>{{address.privatePhoneNr}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.address.mobilePhoneNr">Mobile Phone Nr</span></dt>
+        <dd>
+            <span>{{address.mobilePhoneNr}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'address-jo-angular/'+ address.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

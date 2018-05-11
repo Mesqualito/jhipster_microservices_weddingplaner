@@ -1,0 +1,39 @@
+
+{
+    "weddingplanerApp": {
+        "address" : {
+            "home": {
+                "title": "Addresses",
+                "createLabel": "Create a new Address",
+                "createOrEditLabel": "Create or edit a Address"
+            },
+            "created": "A new Address is created with identifier {{ param }}",
+            "updated": "A Address is updated with identifier {{ param }}",
+            "deleted": "A Address is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Address {{ id }}?"
+            },
+            "detail": {
+                "title": "Address"
+            },
+            "addressType": "Address Type",
+            "addressLine1": "Address Line 1",
+            "addressLine2": "Address Line 2",
+            "city": "City",
+            "zipCode": "Zip Code",
+            "state": "State",
+            "country": "Country",
+            "businessPhoneNr": "Business Phone Nr",
+            "privatePhoneNr": "Private Phone Nr",
+            "mobilePhoneNr": "Mobile Phone Nr",
+            "guestPrivate": "Guest Private",
+            "guestBusiness": "Guest Business",
+            "serviceBusiness": "Service Business",
+            "servicePrivate": "Service Private",
+            "help": {
+                "addressLine1": "addressLine1 = street",
+                "addressLine2": "addressLine2 = additional address information"
+            }
+        }
+    }
+}

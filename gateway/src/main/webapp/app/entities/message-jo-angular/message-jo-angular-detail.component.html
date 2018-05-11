@@ -1,0 +1,62 @@
+
+<div *ngIf="message">
+    <h2><span jhiTranslate="weddingplanerApp.message.detail.title">Message</span> {{message.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="weddingplanerApp.message.messageShortDescription">Message Short Description</span></dt>
+        <dd>
+            <span>{{message.messageShortDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.message.messageInitTime">Message Init Time</span></dt>
+        <dd>
+            <span>{{message.messageInitTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.message.messageText">Message Text</span></dt>
+        <dd>
+            <span>{{message.messageText}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.message.language">Language</span></dt>
+        <dd>
+            <span jhiTranslate="{{'weddingplanerApp.Language.' + message.language}}">{{message.language}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.message.messageValidFrom">Message Valid From</span></dt>
+        <dd>
+            <span>{{message.messageValidFrom | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.message.messageValidUntil">Message Valid Until</span></dt>
+        <dd>
+            <span>{{message.messageValidUntil | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.message.weight">Weight</span></dt>
+        <dd>
+            <span>{{message.weight}}</span>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.message.owner">Owner</span></dt>
+        <dd>
+            <div *ngIf="message.ownerId">
+                <a [routerLink]="['/app-user-jo-angular', message.ownerId]">{{message.ownerId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="weddingplanerApp.message.messageRecipient">Message Recipient</span></dt>
+        <dd>
+            <span *ngFor="let messageRecipient of message.messageRecipients; let last = last">
+                <a [routerLink]="['/app-user-jo-angular', messageRecipient?.id ]">{{messageRecipient.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'message-jo-angular/'+ message.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

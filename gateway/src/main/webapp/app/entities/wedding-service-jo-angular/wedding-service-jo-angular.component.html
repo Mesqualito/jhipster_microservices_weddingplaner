@@ -1,0 +1,82 @@
+<div>
+    <h2>
+        <span jhiTranslate="weddingplanerApp.weddingService.home.title">Wedding Services</span>
+        <button class="btn btn-primary float-right jh-create-entity create-wedding-service-jo-angular" [routerLink]="['/', { outlets: { popup: ['wedding-service-jo-angular-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="weddingplanerApp.weddingService.home.createLabel">
+            Create new Wedding Service
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="weddingServices">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="weddingplanerApp.weddingService.firstName">First Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="weddingplanerApp.weddingService.lastName">Last Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="email"><span jhiTranslate="weddingplanerApp.weddingService.email">Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="serviceCommittedDate"><span jhiTranslate="weddingplanerApp.weddingService.serviceCommittedDate">Service Committed Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="businessAddressId"><span jhiTranslate="weddingplanerApp.weddingService.businessAddress">Business Address</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="privateAddressId"><span jhiTranslate="weddingplanerApp.weddingService.privateAddress">Private Address</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="appUserId"><span jhiTranslate="weddingplanerApp.weddingService.appUser">App User</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let weddingService of weddingServices ;trackBy: trackId">
+                <td><a [routerLink]="['../wedding-service-jo-angular', weddingService.id ]">{{weddingService.id}}</a></td>
+                <td>{{weddingService.firstName}}</td>
+                <td>{{weddingService.lastName}}</td>
+                <td>{{weddingService.email}}</td>
+                <td>{{weddingService.serviceCommittedDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="weddingService.businessAddressId">
+                        <a [routerLink]="['../address-jo-angular', weddingService.businessAddressId  ]" >{{weddingService.businessAddressId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="weddingService.privateAddressId">
+                        <a [routerLink]="['../address-jo-angular', weddingService.privateAddressId  ]" >{{weddingService.privateAddressId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="weddingService.appUserId">
+                        <a [routerLink]="['../app-user-jo-angular', weddingService.appUserId  ]" >{{weddingService.appUserId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../wedding-service-jo-angular', weddingService.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'wedding-service-jo-angular/'+ weddingService.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'wedding-service-jo-angular/'+ weddingService.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

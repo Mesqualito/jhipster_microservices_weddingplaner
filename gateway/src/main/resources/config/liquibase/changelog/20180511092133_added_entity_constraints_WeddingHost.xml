@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity WeddingHost.
+    -->
+    <changeSet id="20180511092133-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="app_user_id"
+                                 baseTableName="wedding_host"
+                                 constraintName="fk_wedding_host_app_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="food_proposal_accept_host_id"
+                                 baseTableName="wedding_host"
+                                 constraintName="fk_wedding_host_food_proposal_accept_host_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party_food"/>
+
+    </changeSet>
+</databaseChangeLog>

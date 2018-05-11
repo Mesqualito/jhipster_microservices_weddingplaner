@@ -1,0 +1,33 @@
+
+{
+    "weddingplanerApp": {
+        "weddingGuest" : {
+            "home": {
+                "title": "Wedding Guests",
+                "createLabel": "Create a new Wedding Guest",
+                "createOrEditLabel": "Create or edit a Wedding Guest"
+            },
+            "created": "A new Wedding Guest is created with identifier {{ param }}",
+            "updated": "A Wedding Guest is updated with identifier {{ param }}",
+            "deleted": "A Wedding Guest is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Wedding Guest {{ id }}?"
+            },
+            "detail": {
+                "title": "Wedding Guest"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "guestInvitationDate": "Guest Invitation Date",
+            "guestCommitted": "Guest Committed",
+            "guestRsvpDate": "Guest Rsvp Date",
+            "privateAddress": "Private Address",
+            "businessAddress": "Business Address",
+            "appUser": "App User",
+            "help": {
+                "firstName": "The firstname attribute."
+            }
+        }
+    }
+}

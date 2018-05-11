@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "owner",
+            "otherEntityName": "appUser",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "receivedMessage",
+            "relationshipName": "messageRecipient",
+            "otherEntityName": "appUser",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "messageShortDescription",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 6,
+            "fieldValidateRulesMaxlength": 80
+        },
+        {
+            "fieldName": "messageInitTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "messageText",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "language",
+            "fieldType": "Language",
+            "fieldValues": "GERMAN,ENGLISH"
+        },
+        {
+            "fieldName": "messageValidFrom",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "messageValidUntil",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180511084936",
+    "entityTableName": "message",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "joAngular",
+    "microserviceName": "weddingplaner"
+}

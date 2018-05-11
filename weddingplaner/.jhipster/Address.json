@@ -1,0 +1,88 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "guestPrivate",
+            "otherEntityName": "weddingGuest",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "privateAddress"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "guestBusiness",
+            "otherEntityName": "weddingGuest",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "businessAddress"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "serviceBusiness",
+            "otherEntityName": "weddingService",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "businessAddress"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "servicePrivate",
+            "otherEntityName": "weddingService",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "privateAddress"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "addressType",
+            "fieldType": "AddressType",
+            "fieldValues": "PRIVATE,BUSINESS"
+        },
+        {
+            "fieldName": "addressLine1",
+            "javadoc": "addressLine1 = street",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "addressLine2",
+            "javadoc": "addressLine2 = additional address information",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zipCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "businessPhoneNr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "privatePhoneNr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobilePhoneNr",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180511084933",
+    "entityTableName": "address",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "joAngular",
+    "microserviceName": "weddingplaner"
+}

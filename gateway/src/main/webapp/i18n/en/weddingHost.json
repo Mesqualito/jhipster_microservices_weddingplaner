@@ -1,0 +1,26 @@
+
+{
+    "weddingplanerApp": {
+        "weddingHost" : {
+            "home": {
+                "title": "Wedding Hosts",
+                "createLabel": "Create a new Wedding Host",
+                "createOrEditLabel": "Create or edit a Wedding Host"
+            },
+            "created": "A new Wedding Host is created with identifier {{ param }}",
+            "updated": "A Wedding Host is updated with identifier {{ param }}",
+            "deleted": "A Wedding Host is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Wedding Host {{ id }}?"
+            },
+            "detail": {
+                "title": "Wedding Host"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "appUser": "App User",
+            "foodProposalAcceptHost": "Food Proposal Accept Host"
+        }
+    }
+}
