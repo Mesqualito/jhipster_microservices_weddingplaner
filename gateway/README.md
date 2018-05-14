@@ -21,7 +21,7 @@ You only live once, so start coding!
 Lülü programmers choice hosted @ [dockerserver01.eigenbaumarkt.com]: http://www.hassfurter.com :-)
 
 
-## Weiterführende Informationen
+# Weiterführende Informationen
 
 [JHipster Homepage and latest documentation]: http://www.jhipster.tech
 [JHipster 4.14.3 archive]: http://www.jhipster.tech/documentation-archive/v4.14.3
