@@ -1,7 +1,7 @@
 # weddingplaner - das Gateway
 
 Neben einem kleinen Vorbereitungs-Tagebuch soll es dem Benutzer detaillierte, aktuelle Informationen zum Ablauf und Möglichkeiten
-zur Interaktion z.B. zum Adressen-Austausch, Fahrgemeinschaften, Geplauder nach der Hochzeit präsentieren.
+zur Interaktion z.B. zum Adressen-Austausch, Fahrgemeinschaften, Geplauder nach der Hochzeit uva.präsentieren.
 
 Dedicated to technicians:
 
@@ -11,7 +11,7 @@ learning [spring-mvc](https://docs.spring.io/spring/docs/current/spring-framewor
 [thymeleaf](https://www.thymeleaf.org), [Bootstrap](http://holdirbootstrap.de) and a lot of other great stuff, too.
 
 Furthermore, [www.gebsattel.rocks](http://www.gebsattel.rocks) and of course [gebsattel.rocks](http://gebsattel.rocks) is redirected
-from [vixen.virginlands.de](http://vixen.virginlands.de) hosted on ([apache2](https://de.wikipedia.org/wiki/Apache_HTTP_Server) on
+from [vixen.virginlands.de](http://vixen.virginlands.de) hosted on [apache2](https://de.wikipedia.org/wiki/Apache_HTTP_Server) on
 [ubuntu](https://www.ubuntu.com/server) to (spring boot - included) [tomcat](https://de.wikipedia.org/wiki/Apache_Tomcat)'s Port 8080
 via a dockerized [nginx](https://www.nginx.com/resources/wiki/)-Proxy on [CentOS](https://www.centos.org/).
 
