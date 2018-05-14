@@ -1,6 +1,7 @@
 package rocks.gebsattel.hochzeit.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import rocks.gebsattel.hochzeit.security.SecurityUtils;
 import rocks.gebsattel.hochzeit.service.WeddingGuestService;
 import rocks.gebsattel.hochzeit.web.rest.errors.BadRequestAlertException;
 import rocks.gebsattel.hochzeit.web.rest.util.HeaderUtil;
@@ -22,6 +23,8 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
+
+import static rocks.gebsattel.hochzeit.security.AuthoritiesConstants.ADMIN;
 
 /**
  * REST controller for managing WeddingGuest.
@@ -72,6 +75,15 @@ public class WeddingGuestResource {
     @PutMapping("/wedding-guests")
     @Timed
     public ResponseEntity<WeddingGuestDTO> updateWeddingGuest(@Valid @RequestBody WeddingGuestDTO weddingGuestDTO) throws URISyntaxException {
+
+        if (SecurityUtils.isCurrentUserInRole(ADMIN)){
+            return ResponseEntity
+                .badRequest()
+                .headers(HeaderUtil
+                    .createFailureAlert(ENTITY_NAME, "not-authenticated", "You need to be logged in to perform this action."))
+                .body(null);
+        }
+
         log.debug("REST request to update WeddingGuest : {}", weddingGuestDTO);
         if (weddingGuestDTO.getId() == null) {
             return createWeddingGuest(weddingGuestDTO);
