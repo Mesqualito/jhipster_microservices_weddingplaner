@@ -1,5 +1,21 @@
 # jhipster_microservices_weddingplaner
 
+14.05.2018:
+
+another strange phenomenon... I installed yarn via homebrew on the Mac. This installed node v10.
+I did get everything to work on MacOS X with a clone from git and MacOS X Terminal.
+Today I removed everything on the Mac, did a fresh pull with Intellij IDEA CE (2018.1.3) of the github-Version again,
+on which I worked with Windows 10 meanwhile.
+After that, I had to deal with
+
+- brew install node@8
+- brew link --force --overwrite node@8
+
+to get the gateway up again with '/.gradlew' and 'yarn start'.
+
+
+11.05.2018:
+
 After 'cloning' via github from initial build on MacOS X to developer-notebook CentOS 7, the initial start with consul via
 'docker-compose -f src/main/docker/consul.yml up'
 gives
