@@ -5,15 +5,15 @@ zur Interaktion z.B. zum Adressen-Austausch, Fahrgemeinschaften, Geplauder nach 
 
 Dedicated to technicians:
 
-learning [spring-mvc]: https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html "build with
-[Gradle]: https://de.wikipedia.org/wiki/Gradle " the [jhipster]: https://hipster.tech way with microservices on
+learning [spring-mvc]: https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html build with
+[Gradle]: https://de.wikipedia.org/wiki/Gradle the [jhipster]: https://hipster.tech way with microservices on
 [docker]: https://de.wikipedia.org/wiki/Docker_(Software) - containern with scss, [thymeleaf]: https://www.thymeleaf.org and
 [Bootstrap]: http://holdirbootstrap.de
 
 Furthermore, [www.gebsattel.rocks]: http://www.gebsattel.rocks and of course [gebsattel.rocks]: http://gebsattel.rocks is redirected
 from [vixen.virginlands.de]: http://vixen.virginlands.de ([apache2]: https://de.wikipedia.org/wiki/Apache_HTTP_Server on
-[ubuntu]: https://www.ubuntu.com/server to (springboot-included) [tomcats]: https://de.wikipedia.org/wiki/Apache_Tomcat 8080
-via a dockerized [nginx]: https://www.nginx.com/resources/wiki/ -Proxy on [CentOS]: https://www.centos.org/ .
+[ubuntu]: https://www.ubuntu.com/server) to (spring boot - included) [tomcat]: https://de.wikipedia.org/wiki/Apache_Tomcat Port 8080
+via a dockerized [nginx]: https://www.nginx.com/resources/wiki/ - Proxy on [CentOS]: https://www.centos.org/
 
 You only live once, so start coding!
 
