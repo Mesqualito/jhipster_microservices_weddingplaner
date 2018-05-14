@@ -1,7 +1,7 @@
 <div>
     <h2>
         <span jhiTranslate="weddingplanerApp.weddingGuest.home.title">Wedding Guests</span>
-        <button class="btn btn-primary float-right jh-create-entity create-wedding-guest-jo-angular" [routerLink]="['/', { outlets: { popup: ['wedding-guest-jo-angular-new'] } }]">
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn btn-primary float-right jh-create-entity create-wedding-guest-jo-angular" [routerLink]="['/', { outlets: { popup: ['wedding-guest-jo-angular-new'] } }]">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="weddingplanerApp.weddingGuest.home.createLabel">
             Create new Wedding Guest
