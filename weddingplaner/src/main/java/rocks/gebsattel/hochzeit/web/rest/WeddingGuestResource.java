@@ -55,7 +55,8 @@ public class WeddingGuestResource {
     public ResponseEntity<WeddingGuestDTO> createWeddingGuest(@Valid @RequestBody WeddingGuestDTO weddingGuestDTO) throws URISyntaxException {
 
         if (!SecurityUtils.isCurrentUserInRole(ADMIN)){
-            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME,"not-authenticated","You need to be logged in as Admin to perform this action.")).body(null);
+            // return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME,"not-authenticated","You need to be logged in as Admin to perform this action.")).body(null);
+            throw new BadRequestAlertException("You need to be logged in as Admin to perform this action.", ENTITY_NAME, "not-authenticated");
         }
 
         log.debug("REST request to save WeddingGuest : {}", weddingGuestDTO);
