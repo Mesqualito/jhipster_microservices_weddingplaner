@@ -53,6 +53,11 @@ public class WeddingGuestResource {
     @PostMapping("/wedding-guests")
     @Timed
     public ResponseEntity<WeddingGuestDTO> createWeddingGuest(@Valid @RequestBody WeddingGuestDTO weddingGuestDTO) throws URISyntaxException {
+
+        if (!SecurityUtils.isCurrentUserInRole(ADMIN)){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME,"not-authenticated","You need to be logged in as Admin to perform this action.")).body(null);
+        }
+
         log.debug("REST request to save WeddingGuest : {}", weddingGuestDTO);
         if (weddingGuestDTO.getId() != null) {
             throw new BadRequestAlertException("A new weddingGuest cannot already have an ID", ENTITY_NAME, "idexists");
@@ -75,15 +80,6 @@ public class WeddingGuestResource {
     @PutMapping("/wedding-guests")
     @Timed
     public ResponseEntity<WeddingGuestDTO> updateWeddingGuest(@Valid @RequestBody WeddingGuestDTO weddingGuestDTO) throws URISyntaxException {
-
-        if (SecurityUtils.isCurrentUserInRole(ADMIN)){
-            return ResponseEntity
-                .badRequest()
-                .headers(HeaderUtil
-                    .createFailureAlert(ENTITY_NAME, "not-authenticated", "You need to be logged in to perform this action."))
-                .body(null);
-        }
-
         log.debug("REST request to update WeddingGuest : {}", weddingGuestDTO);
         if (weddingGuestDTO.getId() == null) {
             return createWeddingGuest(weddingGuestDTO);
