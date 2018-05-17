@@ -5,6 +5,15 @@
 /src/test/javascript/coverage/
 
 ######################
+# Docker
+######################
+/docker/central-server-config/
+/docker/log-conf/
+/docker/log-data/
+/docker/node_modules/
+/docker/traefik/
+
+######################
 # Node
 ######################
 /node/

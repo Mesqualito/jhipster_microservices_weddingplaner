@@ -1,0 +1,16 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "gateway",
+      "weddingplaner"
+    ],
+    "directoryPath": "../",
+    "gatewayType": "traefik",
+    "monitoring": "elk",
+    "consoleOptions": [
+      "zipkin"
+    ],
+    "serviceDiscoveryType": "consul",
+    "jwtSecretKey": "50395d4f93ccdb93d3e697da9cd8566d55475cc4"
+  }
+}

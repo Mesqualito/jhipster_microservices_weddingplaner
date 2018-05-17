@@ -1,0 +1,71 @@
+version: '2'
+services:
+    weddingplaner-app:
+        image: weddingplaner
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONSUL_HOST=consul
+            - SPRING_CLOUD_CONSUL_PORT=8500
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://weddingplaner-postgresql:5432/weddingplaner
+            - JHIPSTER_SLEEP=10
+    weddingplaner-postgresql:
+        image: postgres:9.6.5
+        environment:
+            - POSTGRES_USER=weddingplaner
+            - POSTGRES_PASSWORD=
+    
+    weddingplaner-app:
+        image: weddingplaner
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONSUL_HOST=consul
+            - SPRING_CLOUD_CONSUL_PORT=8500
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://weddingplaner-postgresql:5432/weddingplaner
+            - JHIPSTER_SLEEP=10
+    weddingplaner-postgresql:
+        image: postgres:9.6.5
+        environment:
+            - POSTGRES_USER=weddingplaner
+            - POSTGRES_PASSWORD=
+    
+    consul:
+        extends:
+            file: consul.yml
+            service: consul
+    consul-config-loader:
+        extends:
+            file: consul.yml
+            service: consul-config-loader
+    traefik:
+        extends:
+            file: traefik.yml
+            service: traefik
+
+    jhipster-elasticsearch:
+        extends:
+            file: jhipster-console.yml
+            service: jhipster-elasticsearch
+    jhipster-logstash:
+        extends:
+            file: jhipster-console.yml
+            service: jhipster-logstash
+        depends_on:
+            - jhipster-elasticsearch
+    jhipster-console:
+        extends:
+            file: jhipster-console.yml
+            service: jhipster-console
+        depends_on:
+            - jhipster-elasticsearch
+    jhipster-import-dashboards:
+        extends:
+            file: jhipster-console.yml
+            service: jhipster-import-dashboards
+        depends_on:
+            - jhipster-elasticsearch
+    jhipster-zipkin:
+        extends:
+            file: jhipster-console.yml
+            service: jhipster-zipkin
+        depends_on:
+            - jhipster-elasticsearch
