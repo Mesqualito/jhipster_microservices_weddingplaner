@@ -1,49 +1,49 @@
-# jhipster_microservices_weddingplaner
+# weddingplaner - das Gateway
 
-14.05.2018:
+Neben einem kleinen Vorbereitungs-Tagebuch soll es dem Benutzer detaillierte, aktuelle Informationen zum Ablauf und Möglichkeiten
+zur Interaktion z.B. zum Adressen-Austausch, Fahrgemeinschaften, Geplauder nach der Hochzeit uva.präsentieren.
 
-another strange phenomenon... I installed yarn via homebrew on the Mac. This installed node v10.
-I did get everything to work on MacOS X with a clone from git and MacOS X Terminal.
-Today I removed everything on the Mac, did a fresh pull with Intellij IDEA CE (2018.1.3) of the github-Version again,
-on which I worked with Windows 10 meanwhile.
-After that, I had to deal with
+Dedicated to technicians:
 
-- brew install node@8
-- brew link --force --overwrite node@8
+learning [spring-mvc](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html) build with
+[Gradle](https://de.wikipedia.org/wiki/Gradle) the [jhipster](https://hipster.tech) way with microservices on
+[docker](https://de.wikipedia.org/wiki/Docker_(Software))-containern with Consul, Netflix OSS, scss,
+[thymeleaf](https://www.thymeleaf.org), [Bootstrap](http://holdirbootstrap.de) and a lot of other great stuff, too.
 
-to get the gateway up again with '/.gradlew' and 'yarn start'.
+Furthermore, [www.gebsattel.rocks](http://www.gebsattel.rocks) and of course [gebsattel.rocks](http://gebsattel.rocks) is redirected
+from [vixen.virginlands.de](http://vixen.virginlands.de) hosted on [apache2](https://de.wikipedia.org/wiki/Apache_HTTP_Server) on
+[ubuntu](https://www.ubuntu.com/server) to (spring boot - included) [tomcat](https://de.wikipedia.org/wiki/Apache_Tomcat)'s Port 8080
+via a dockerized [nginx](https://www.nginx.com/resources/wiki/)-Proxy on [CentOS](https://www.centos.org/).
+
+You only live once, so start coding!
 
 
-11.05.2018:
+## Weiterführende Informationen
 
-After 'cloning' via github from initial build on MacOS X to developer-notebook CentOS 7, the initial start with consul via
-'docker-compose -f src/main/docker/consul.yml up'
-gives
-'glob error { Error: EACCES: permission denied, scandir '/config'' on CentOS 7 notebook
+- [JHipster Homepage and latest documentation](http://www.jhipster.tech)
+- [JHipster 4.14.3 archive](http://www.jhipster.tech/documentation-archive/v4.14.3)
+- [Doing microservices with JHipster](http://www.jhipster.tech/documentation-archive/v4.14.3/microservices-architecture/)
+- [Using JHipster in development]()http://www.jhipster.tech/documentation-archive/v4.14.3/development/)
+- [Service Discovery and Configuration with Consul](http://www.jhipster.tech/documentation-archive/v4.14.3/microservices-architecture/#consul)
+- [Using Docker and Docker-Compose](http://www.jhipster.tech/documentation-archive/v4.14.3/docker-compose)
+- [Using JHipster in production](http://www.jhipster.tech/documentation-archive/v4.14.3/production/)
+- [Running tests page](http://www.jhipster.tech/documentation-archive/v4.14.3/running-tests/)
+- [Setting up Continuous Integration](http://www.jhipster.tech/documentation-archive/v4.14.3/setting-up-ci/)
 
-after executing './gradlew' in directory 'weddingplaner' and
-'yarn' and './gradlew' in directory 'gateway', I tried a 'docker logs ' where I found
-'[DEBUG] http: Request PUT /v1/kv/config/*/data (153.899µs) from=172.18.0.2:48900'
 
-With 'docker exec -it docker_consul_1 /bin/sh' I looked into '/consul/config/' where no information was
-saved. On my MacOS X notebook I did the same and found nothing at all in '/consul/config/', too, but the
-docker on MacOS X didn't tell me any problems with access permissions.
 
-Permissions '/consul/config/' in docker container on MacOS X:
+- [Gatling](http://gatling.io/)
+- [Node.js](https://nodejs.org/)
+- [Yarn](https://yarnpkg.org/)
+- [Webpack](https://webpack.github.io/)
+- [Angular CLI](https://cli.angular.io/)
+- [BrowserSync](http://www.browsersync.io/)
+- [Karma](http://karma-runner.github.io/)
+- [Jasmine](http://jasmine.github.io/2.0/introduction.html)
+- [Protractor](https://angular.github.io/protractor/)
+- [Leaflet](http://leafletjs.com/)
+- [DefinitelyTyped](http://definitelytyped.org/)
 
-/consul/config # ls -alth
-total 0
-drwxr-xr-x    2 consul   consul         4.0K Sep 19  2017 .
-drwxr-xr-x    4 consul   consul         4.0K Sep 19  2017 ..
 
-Permissions '/consul/config/' in docker container on CentOS 7:
-
-/consul/config # ls -alth
-total 0
-drwxr-xr-x    2 consul   consul         6 Sep 19  2017 .
-drwxr-xr-x    4 consul   consul        32 Sep 19  2017 ..
-
-The microservices look o.k. in 'localhost:8500' on both developer-PCs, but on CentOS 7 the './gradlew'-log for 'weddingapp'
-shows 'Config Server:  Not found or not setup for this application' while on MacOS X the log shows
-'Config Server: Connected to Consul Server running in Docker'. Strange for me!
+Lülü programmers choice hosted @ [dockerserver01.eigenbaumarkt.com]: http://www.hassfurter.com
 

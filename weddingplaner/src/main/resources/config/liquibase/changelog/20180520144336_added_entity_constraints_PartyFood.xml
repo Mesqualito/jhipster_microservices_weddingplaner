@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity PartyFood.
+    -->
+    <changeSet id="20180520144336-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="party_food"
+                                 constraintName="fk_party_food_owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="party_foods_id"
+                                 baseTableName="party_food_member_user"
+                                 constraintName="fk_party_food_member_user_party_foods_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="party_food"/>
+        <addForeignKeyConstraint baseColumnNames="member_users_id"
+                                 baseTableName="party_food_member_user"
+                                 constraintName="fk_party_food_member_user_member_users_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"/>
+        
+    </changeSet>
+</databaseChangeLog>
