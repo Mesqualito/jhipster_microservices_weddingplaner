@@ -15,6 +15,8 @@ import java.util.Objects;
 
 import rocks.gebsattel.hochzeit.domain.enumeration.Language;
 
+// TODO: https://stackoverflow.com/questions/49343572/jhipster-4-14-1-registering-a-user-with-additional-information
+
 /**
  * 'User' is a predesigned special entity
  * and can not be declared as entity !

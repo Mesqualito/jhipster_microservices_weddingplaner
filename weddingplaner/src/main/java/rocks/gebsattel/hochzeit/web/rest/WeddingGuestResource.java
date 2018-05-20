@@ -24,7 +24,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
-import static rocks.gebsattel.hochzeit.security.AuthoritiesConstants.ADMIN;
+import static rocks.gebsattel.hochzeit.security.AuthoritiesConstants.*;
 
 /**
  * REST controller for managing WeddingGuest.
@@ -55,6 +55,7 @@ public class WeddingGuestResource {
     public ResponseEntity<WeddingGuestDTO> createWeddingGuest(@Valid @RequestBody WeddingGuestDTO weddingGuestDTO) throws URISyntaxException {
 
         if (!SecurityUtils.isCurrentUserInRole(ADMIN)){
+            log.debug("No user passed in, using current user: {}", SecurityUtils.getCurrentUserLogin());
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME,"not-authenticated","You need to be logged in as Admin to perform this action.")).body(null);
             // throw new BadRequestAlertException("You need to be logged in as Admin to perform this action.", ENTITY_NAME, "not-authenticated");
         }
