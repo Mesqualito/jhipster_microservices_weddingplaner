@@ -96,7 +96,7 @@
         }
     ],
     "changelogDate": "20180520144331",
-    "javadoc": "'User' is a predesigned special entity\nand can not be declared as entity !",
+    "javadoc": "'User' is a predesigned special entity\nand can not have additional attributes etc.",
     "entityTableName": "app_user",
     "dto": "mapstruct",
     "pagination": "no",

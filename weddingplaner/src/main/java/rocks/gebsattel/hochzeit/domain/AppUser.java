@@ -18,9 +18,9 @@ import rocks.gebsattel.hochzeit.domain.enumeration.Language;
 
 /**
  * 'User' is a predesigned special entity
- * and can not be declared as entity !
+ * and can not have additional attributes etc.
  */
-@ApiModel(description = "'User' is a predesigned special entity and can not be declared as entity !")
+@ApiModel(description = "'User' is a predesigned special entity and can not have additional attributes etc.")
 @Entity
 @Table(name = "app_user")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -29,10 +29,18 @@ public class AppUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+//    @SequenceGenerator(name = "sequenceGenerator")
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
+
+    @OneToOne
+    @MapsId
+    private User user;
+
+//    @OneToOne
+//    @JoinColumn(unique = true)
+//    private User user;
 
     @NotNull
     @Size(max = 20)
@@ -46,10 +54,6 @@ public class AppUser implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "language")
     private Language language;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private User user;
 
     @OneToOne(mappedBy = "appUser")
     @JsonIgnore
